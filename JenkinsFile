@@ -1,12 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('tests and building') {
+    stage('building') {
       steps {
         sh './scripts/ssh_testVM.sh'
       }
     }
-    stage('login and push to dockerhub') {
+    stage('push to dockerhub') {
       steps {
         sh './scripts/docker_push.sh'
       }
