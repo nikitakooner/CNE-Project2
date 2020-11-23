@@ -36,15 +36,15 @@ I planned my project using a sprint board on Jira.
 ![Screen Shot 2020-11-23 at 11 53 01 AM](https://user-images.githubusercontent.com/71395610/99959417-e1aad600-2d82-11eb-8f9e-8355dab60112.png)
 
 **What went well** 
-I set up my EC2 creating subnet groups,VPC and Key Pair
-I created 2 RDS through terraform
-Install ansible 
-Created an ansible playbook
-Used ansible to install jenkins, kubernetes, docker
-SSH'd into my jenkins VM using terraform output
-Opened jenkins on port 8080
-Set up jenkins 
-Created a jenkins file
+- I set up my EC2 creating subnet groups,VPC and Key Pair
+- I created 2 RDS through terraform
+- Install ansible 
+- Created an ansible playbook
+- Used ansible to install jenkins, kubernetes, docker
+- SSH'd into my jenkins VM using terraform output
+- Opened jenkins on port 8080
+- Set up jenkins 
+- Created a jenkins file
 
 
 **Next Time** for this project i will:
