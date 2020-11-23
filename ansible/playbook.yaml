@@ -2,6 +2,7 @@
   become: true
   tasks:
     - name: install misc programs
+
       script: /home/ubuntu/CNE-project2/scripts/misc_install.sh
 
     - name: install docker from script
@@ -10,11 +11,11 @@
     - name: install docker_compose from script
       script: /home/ubuntu/CNE-project2/scripts/docker_compose.sh
 
-
 - hosts: jenkins_VM
   become: true
   tasks:
     - name: install jenkins from script
+
       script: /home/ubuntu/CNE-project2/scripts/install-jenkins.sh
 
     - name: install Kubernetes from script
