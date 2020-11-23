@@ -1,8 +1,8 @@
 
 #!/bin/bash
 
-ssh -i /home/jenkins/.ssh/id_rsa ubuntu@54.154.252.207 << EOF
-cd CNE_PracticalProject/
+ssh -i /home/jenkins/.ssh/id_rsa ubuntu@18.202.57.44 << EOF
+cd CNE_Project2/
 cd frontend/
 docker build -t nikitakooner/front_end:latest .
 cd ..
