@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('tests and building') {
       steps {
-        sh './scripts/ssh_pytestVM.sh'
+        sh './scripts/ssh_testVM.sh'
       }
     }
     stage('login and push to dockerhub') {
