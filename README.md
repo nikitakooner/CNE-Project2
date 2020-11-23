@@ -23,36 +23,19 @@ I must create the following and utilise technologies i have learnt during the tr
 - Create an Ansible Playbook that will provision the environment that your CI Server needs to run.
 - The project must make use of a reverse proxy to make your application accessible to the user (NGINX)
 
-![app-diagram](https://i.imgur.com/wnbDazy.png)
-
-## Testing
-
-Unit Tests have been included for both the frontend and backend services.
-
-To test the backend service, you will need two things:
-
-1. A database called `testdb`
-2. A `TEST_DATABASE_URI` environment variable, which contains the database connection for the `testdb` database.
-
-You can run the tests using the command:
-
-```
-pytest
-```
-
-To generate a coverage report, you will need to run:
-
-```
-pytest --cov application
-```
-
 ## Infrastructure
 
 The **Minimum Viable Product** for this project should at least demonstrate the following infrastructure diagram:
 
 ![mvp-diagram](https://i.imgur.com/i5qfOas.png)
 
-**Stretch goals** for this project include:
+The diagram shows the terraform symbol in the bottom left. I used terraform to create 2 EC2 instances, one for ansible and one for testing. Terraform will also create 2 RDS instances with MYSQL installed. On the EC2 I have created using terraform I will install ansible on there in order for jenkins to be installed and anything else i want installed such as docker. I will set my kubernetes cluster up manually. I will ssh from my jenkins machine to my test VM and run pytest and run kubectl commands to control my kubernetes cluster. Jenkins will be set up manually using port 8080 create plugins and use jenkins pipeline jobs. I will create a Jenkins File on my github to use on jenkins. The file will consist of building new images, needs to run the tests to check the new code is working fine, if the tests pass then push the images to docker hub and then finally update the kubernetes cluster. 
+
+**Jira Board** 
+I planned my project using a sprint board on Jira. 
+
+
+**Next Time** for this project i will:
 
 - Using **Terraform to configure the Kubernetes Cluster** for production 
 - Using **Terraform and Ansible to configure the Test VM**
@@ -61,4 +44,3 @@ Completing the stretch goals should yield an infrastructure diagram similar to t
 
 ![stretch-digram](https://i.imgur.com/Q5zljVl.png)
 
-**Good luck!**
