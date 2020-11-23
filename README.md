@@ -1,10 +1,9 @@
 # QAC SFIA2 Project
 
-This application is a simple [Flask application](https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application), ready to be deployed, for your SFIA2 project.
-
-The following information should be everything you need to complete the project.
-
 ## Brief
+
+The final deliverable for this project is a completed CI Pipeline with full documentation around the utilisation of supporting tools.
+The CI Pipeline needs to be able to successfully deploy the application you have created as per the requirements.
 
 The application must:
 
@@ -12,80 +11,17 @@ The application must:
 - Be deployed in a **managed Kubernetes Cluster for production**
 - Make use of a **managed Database solution**
 
-## Application
+I must create the following and utilise technologies i have learnt during the training
 
-The application is a Flask application running in **2 micro-services** (*frontend* and *backend*).  
-
-The database directory is available should you: 
-  - want to use a MySQL container for your database at any point, *or*
-  - want to make use of the `Create.sql` file to **set up and pre-populate your database**.
-
-The application works by:
-1. The frontend service making a GET request to the backend service. 
-2. The backend service using a database connection to query the database and return a result.
-3. The frontend service serving up a simple HTML (`index.html`) to display the result.
-
-### Database Connection
-
-The database connection is handled in the `./backend/application/__init__.py` file.
-
-A typical Database URI follows the form:
-
-```
-mysql+pymysql://[db-user]:[db-password]@[db-host]/[db-name]
-```
-
-An example of this would be:
-
-```
-mysql+pymysql://root:password@mysql:3306/orders
-```
-
-### Environment Variables
-
-The application makes use of **2 environment variables**:
-
-- `DATABASE_URI`: as described above
-- `SECRET_KEY`: any *random string* will work here
-
-### Running a Flask Application
-
-Typically, to run a Flask application, you would:
-
-1. Install the pip dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-2. Run the application:
-
-```
-python3 app.py
-```
-
-![app-diagram](https://i.imgur.com/wnbDazy.png)
-
-## Testing
-
-Unit Tests have been included for both the frontend and backend services.
-
-To test the backend service, you will need two things:
-
-1. A database called `testdb`
-2. A `TEST_DATABASE_URI` environment variable, which contains the database connection for the `testdb` database.
-
-You can run the tests using the command:
-
-```
-pytest
-```
-
-To generate a coverage report, you will need to run:
-
-```
-pytest --cov application
-```
+- A Jira board with full expansion on tasks 
+- A risk assessment to record any issues or risks that you faced creating your project.
+- The application must be deployed using containerisation and orchestration tools (kubernetes and docker)
+- The application must be tested through the CI pipeline.
+- The project must make use of two managed Database Servers: 1 for Testing and 1 for Production.
+- If a change is made to the code base, Webhooks should be used so that Jenkins recreates and redeploys the changed application.
+- The infrastructure for the project should be configured using an infrastructure management tool (Terraform).
+- Create an Ansible Playbook that will provision the environment that your CI Server needs to run.
+- The project must make use of a reverse proxy to make your application accessible to the user (NGINX)
 
 ## Infrastructure
 
@@ -93,7 +29,25 @@ The **Minimum Viable Product** for this project should at least demonstrate the 
 
 ![mvp-diagram](https://i.imgur.com/i5qfOas.png)
 
-**Stretch goals** for this project include:
+The diagram shows the terraform symbol in the bottom left. I used terraform to create 2 EC2 instances, one for ansible and one for testing. Terraform will also create 2 RDS instances with MYSQL installed. On the EC2 I have created using terraform I will install ansible on there in order for jenkins to be installed and anything else i want installed such as docker. I will set my kubernetes cluster up manually. I will ssh from my jenkins machine to my test VM and run pytest and run kubectl commands to control my kubernetes cluster. Jenkins will be set up manually using port 8080 create plugins and use jenkins pipeline jobs. I will create a Jenkins File on my github to use on jenkins. The file will consist of building new images, needs to run the tests to check the new code is working fine, if the tests pass then push the images to docker hub and then finally update the kubernetes cluster. 
+
+**Jira Board** 
+I planned my project using a sprint board on Jira. 
+![Screen Shot 2020-11-23 at 11 53 01 AM](https://user-images.githubusercontent.com/71395610/99959417-e1aad600-2d82-11eb-8f9e-8355dab60112.png)
+
+**What went well** 
+- I set up my EC2 creating subnet groups,VPC and Key Pair
+- I created 2 RDS through terraform
+- Install ansible 
+- Created an ansible playbook
+- Used ansible to install jenkins, kubernetes, docker
+- SSH'd into my jenkins VM using terraform output
+- Opened jenkins on port 8080
+- Set up jenkins 
+- Created a jenkins file
+
+
+**Next Time** for this project i will:
 
 - Using **Terraform to configure the Kubernetes Cluster** for production 
 - Using **Terraform and Ansible to configure the Test VM**
@@ -102,4 +56,3 @@ Completing the stretch goals should yield an infrastructure diagram similar to t
 
 ![stretch-digram](https://i.imgur.com/Q5zljVl.png)
 
-**Good luck!**
