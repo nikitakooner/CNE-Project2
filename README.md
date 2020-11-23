@@ -34,6 +34,17 @@ The diagram shows the terraform symbol in the bottom left. I used terraform to c
 **Jira Board** 
 I planned my project using a sprint board on Jira. 
 
+**What went well** 
+I set up my EC2 creating subnet groups,VPC and Key Pair
+I created 2 RDS through terraform
+Install ansible 
+Created an ansible playbook
+Used ansible to install jenkins, kubernetes, docker
+SSH'd into my jenkins VM using terraform output
+Opened jenkins on port 8080
+Set up jenkins 
+Created a jenkins file
+
 
 **Next Time** for this project i will:
 
