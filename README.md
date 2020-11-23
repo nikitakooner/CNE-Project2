@@ -33,6 +33,7 @@ The diagram shows the terraform symbol in the bottom left. I used terraform to c
 
 **Jira Board** 
 I planned my project using a sprint board on Jira. 
+![Screen Shot 2020-11-23 at 11 53 01 AM](https://user-images.githubusercontent.com/71395610/99959417-e1aad600-2d82-11eb-8f9e-8355dab60112.png)
 
 **What went well** 
 I set up my EC2 creating subnet groups,VPC and Key Pair
